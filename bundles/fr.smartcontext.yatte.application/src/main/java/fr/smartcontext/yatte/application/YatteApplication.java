@@ -49,10 +49,9 @@ public class YatteApplication implements IApplication {
 		ServiceReference<TemplateProcessor> templateProcessorRef = bundleContext.getServiceReference(TemplateProcessor.class);
 		TemplateProcessor templateProcessor = bundleContext.getService(templateProcessorRef);
 		
-		PrintWriter fos = new PrintWriter(new FileOutputStream(new File("/home/glefur/Perso/repositories/glefur.github.io/repo.html")));
+		PrintWriter fos = new PrintWriter(new FileOutputStream(new File(cmdLine.getOptionValue(ApplicationParametersConstants.OUTPUT_OPTION_NAME))));
 
-		
-		templateProcessor.process(Paths.get("/home/glefur/Perso/repositories/glefur.github.io/template.gtp"), processingContext, fos);
+		templateProcessor.process(Paths.get(cmdLine.getOptionValue(ApplicationParametersConstants.TEMPLATE_OPTION_NAME)), processingContext, fos);
 		
 		fos.close();
 		return IApplication.EXIT_OK;
@@ -72,6 +71,21 @@ public class YatteApplication implements IApplication {
 		OptionBuilder.hasArg();
 		OptionBuilder.withArgName(ApplicationParametersConstants.PROPERTIES_PATH_OPTION_ARGUMENT_NAME);
 		options.addOption(OptionBuilder.create(ApplicationParametersConstants.PROPERTIES_PATH_OPTION_NAME));
+
+		OptionBuilder.withLongOpt(ApplicationParametersConstants.OUTPUT_OPTION_LONG_NAME);
+		OptionBuilder.withDescription(ApplicationParametersConstants.OUTPUT_OPTION_DESCRIPTION);
+		OptionBuilder.hasArg();
+		OptionBuilder.withArgName(ApplicationParametersConstants.OUTPUT_OPTION_ARGUMENT_NAME);
+		OptionBuilder.isRequired();
+		options.addOption(OptionBuilder.create(ApplicationParametersConstants.OUTPUT_OPTION_NAME));
+
+		OptionBuilder.withLongOpt(ApplicationParametersConstants.TEMPLATE_OPTION_LONG_NAME);
+		OptionBuilder.withDescription(ApplicationParametersConstants.TEMPLATE_OPTION_DESCRIPTION);
+		OptionBuilder.hasArg();
+		OptionBuilder.withArgName(ApplicationParametersConstants.TEMPLATE_OPTION_ARGUMENT_NAME);
+		OptionBuilder.isRequired();
+		options.addOption(OptionBuilder.create(ApplicationParametersConstants.TEMPLATE_OPTION_NAME));
+
 		return options;
 	}
 }
