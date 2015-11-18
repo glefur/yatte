@@ -5,7 +5,8 @@ Bundle-SymbolicName: fr.smartcontext.yatte.engine
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: SmartContext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.osgi.framework
+Import-Package: org.apache.commons.cli;version="1.2.0",
+ org.osgi.framework
 Export-Package: fr.smartcontext.yatte.engine,
  fr.smartcontext.yatte.engine.commands
 Service-Component: OSGI-INF/TemplateProcessor.xml,OSGI-INF/CommandFactory.xml

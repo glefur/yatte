@@ -8,21 +8,17 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package fr.smartcontext.yatte.engine;
-
-import org.apache.commons.cli.CommandLine;
-import org.osgi.framework.BundleContext;
+package fr.smartcontext.yatte.application;
 
 /**
  * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
-public interface ContextInitializer {
-	
-	String DOT = ".";
-	String TYPE_SUFFIX = ".type";
-	String PROPERTIES_PATH_PARAMETER = "propertiesPath";
+public interface ApplicationParametersConstants {
 
-	ProcessingContext initContext(BundleContext bundleContext, CommandLine cmdLine) throws Exception;
-	
+	String PROPERTIES_PATH_OPTION_NAME = "p";
+	String PROPERTIES_PATH_OPTION_LONG_NAME = "properties-path";
+	String PROPERTIES_PATH_OPTION_DESCRIPTION = "Path of the properties file to use to init the processing context";
+	String PROPERTIES_PATH_OPTION_ARGUMENT_NAME = "properties";
+
 }
