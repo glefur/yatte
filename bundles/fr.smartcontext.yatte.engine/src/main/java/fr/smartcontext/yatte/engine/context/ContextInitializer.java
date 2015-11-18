@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package fr.smartcontext.yatte.engine;
+package fr.smartcontext.yatte.engine.context;
 
 import org.apache.commons.cli.CommandLine;
 import org.osgi.framework.BundleContext;

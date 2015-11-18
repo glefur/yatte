@@ -12,7 +12,7 @@ package fr.smartcontext.yatte.engine.commands;
 
 import java.util.Map;
 
-import fr.smartcontext.yatte.engine.ProcessingContext;
+import fr.smartcontext.yatte.engine.context.ProcessingContext;
 
 /**
  * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>

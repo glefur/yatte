@@ -16,8 +16,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Map;
 
-import fr.smartcontext.yatte.engine.ProcessingContext;
 import fr.smartcontext.yatte.engine.commands.Command;
+import fr.smartcontext.yatte.engine.context.ProcessingContext;
 
 /**
  * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
@@ -31,7 +31,7 @@ public class GenServiceCommand extends Command {
 
 	/**
 	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.engine.commands.Command#execute(fr.smartcontext.yatte.engine.ProcessingContext)
+	 * @see fr.smartcontext.yatte.engine.commands.Command#execute(fr.smartcontext.yatte.engine.context.ProcessingContext)
 	 */
 	@Override
 	public String execute(ProcessingContext context) {

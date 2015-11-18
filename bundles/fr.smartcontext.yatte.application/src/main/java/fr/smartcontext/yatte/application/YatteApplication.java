@@ -17,9 +17,10 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
 
-import fr.smartcontext.yatte.engine.ContextInitializer;
-import fr.smartcontext.yatte.engine.ProcessingContext;
+import fr.smartcontext.yatte.application.context.PropertiesContextInitializer;
 import fr.smartcontext.yatte.engine.TemplateProcessor;
+import fr.smartcontext.yatte.engine.context.ContextInitializer;
+import fr.smartcontext.yatte.engine.context.ProcessingContext;
 
 /**
  * This class controls all aspects of the application's execution
@@ -41,8 +42,14 @@ public class YatteApplication implements IApplication {
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmdLine = parser.parse(options, arguments);
 		
+		ContextInitializer contextInitializer;
+		
 		ServiceReference<ContextInitializer> ciRef = bundleContext.getServiceReference(ContextInitializer.class);
-		ContextInitializer contextInitializer = bundleContext.getService(ciRef);
+		if (ciRef != null) {
+			contextInitializer = bundleContext.getService(ciRef);
+		} else {
+			contextInitializer = new PropertiesContextInitializer();
+		}
 		
 		ProcessingContext processingContext = contextInitializer.initContext(bundleContext, cmdLine);
 		

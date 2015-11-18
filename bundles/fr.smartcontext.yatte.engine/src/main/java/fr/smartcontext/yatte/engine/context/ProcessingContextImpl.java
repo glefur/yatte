@@ -9,7 +9,7 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 
-package fr.smartcontext.yatte.engine;
+package fr.smartcontext.yatte.engine.context;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +32,7 @@ public class ProcessingContextImpl implements ProcessingContext {
 
 	/**
 	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.engine.ProcessingContext#getBundleContext()
+	 * @see fr.smartcontext.yatte.engine.context.ProcessingContext#getBundleContext()
 	 */
 	@Override
 	public BundleContext getBundleContext() {
@@ -41,7 +41,7 @@ public class ProcessingContextImpl implements ProcessingContext {
 
 	/**
 	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.engine.ProcessingContext#getVar(java.lang.String)
+	 * @see fr.smartcontext.yatte.engine.context.ProcessingContext#getVar(java.lang.String)
 	 */
 	@Override
 	public final Object getVar(String name) {

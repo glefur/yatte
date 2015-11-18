@@ -19,10 +19,10 @@ import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.smartcontext.yatte.engine.ProcessingContext;
 import fr.smartcontext.yatte.engine.TemplateProcessor;
 import fr.smartcontext.yatte.engine.commands.Command;
 import fr.smartcontext.yatte.engine.commands.CommandFactory;
+import fr.smartcontext.yatte.engine.context.ProcessingContext;
 
 /**
  * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
