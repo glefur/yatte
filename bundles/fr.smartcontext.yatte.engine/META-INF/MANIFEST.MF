@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Very small template engine
+Bundle-SymbolicName: fr.smartcontext.yatte.engine
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: SmartContext
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework
+Export-Package: fr.smartcontext.yatte.engine,
+ fr.smartcontext.yatte.engine.commands
+Service-Component: OSGI-INF/TemplateProcessor.xml,OSGI-INF/CommandFactory.xml
+Bundle-ActivationPolicy: lazy
