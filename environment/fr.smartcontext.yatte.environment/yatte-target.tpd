@@ -1,0 +1,24 @@
+target "yatte-target"
+
+with source,requirements
+
+
+location eclipse "http://download.eclipse.org/eclipse/updates/4.5" {
+	javax.xml
+	org.eclipse.equinox.p2.metadata.repository
+	org.eclipse.core.commands
+	org.eclipse.core.runtime
+	org.eclipse.equinox.app
+	org.eclipse.equinox.ds
+	org.eclipse.osgi.compatibility.state
+	org.eclipse.osgi.services
+	org.eclipse.equinox.executable.feature.group
+}
+
+location mars "http://download.eclipse.org/releases/mars/" {
+	
+}
+
+location orbit "http://download.eclipse.org/tools/orbit/downloads/drops/R20150821153341/repository/" {
+	org.apache.commons.cli
+}

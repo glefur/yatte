@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
+<target name="yatte-target" sequenceNumber="1447950619">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="javax.xml" version="1.3.4.v201005080400"/>
+      <unit id="org.eclipse.equinox.p2.metadata.repository" version="1.2.200.v20150428-1613"/>
+      <unit id="org.eclipse.core.commands" version="3.7.0.v20150422-0725"/>
+      <unit id="org.eclipse.core.runtime" version="3.11.1.v20150903-1804"/>
+      <unit id="org.eclipse.equinox.app" version="1.3.300.v20150423-1356"/>
+      <unit id="org.eclipse.equinox.ds" version="1.4.300.v20150423-1356"/>
+      <unit id="org.eclipse.osgi.compatibility.state" version="1.0.100.v20150402-1551"/>
+      <unit id="org.eclipse.osgi.services" version="3.5.0.v20150519-2006"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.200.v20150602-1417"/>
+      <repository id="eclipse" location="http://download.eclipse.org/eclipse/updates/4.5"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <repository id="mars" location="http://download.eclipse.org/releases/mars/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.apache.commons.cli" version="1.2.0.v201404270220"/>
+      <repository id="orbit" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150821153341/repository/"/>
+    </location>
+  </locations>
+</target>
