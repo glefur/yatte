@@ -9,6 +9,7 @@ import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.MissingOptionException;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.eclipse.equinox.app.IApplication;
@@ -64,10 +65,13 @@ public class YatteApplication implements IApplication {
 			templateProcessor.process(Paths.get(cmdLine.getOptionValue(ApplicationParametersConstants.TEMPLATE_OPTION_NAME)), processingContext, fos);
 
 			fos.close();
-		} catch (Exception ex) {
+		} catch (MissingOptionException ex) {
 			System.err.println("Unable to launch the publisher.");
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.printHelp( "p2repoPublisher", options );
+		} catch (Exception e) {
+			System.err.println("An error occurred.");
+			e.printStackTrace();
 		}
 		return IApplication.EXIT_OK;
 	}

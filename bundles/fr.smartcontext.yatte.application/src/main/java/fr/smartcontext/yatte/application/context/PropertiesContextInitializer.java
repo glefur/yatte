@@ -34,7 +34,7 @@ public class PropertiesContextInitializer implements ContextInitializer {
 
 		String propertiesPath = cmdLine.getOptionValue(ApplicationParametersConstants.PROPERTIES_PATH_OPTION_NAME);
 		if (propertiesPath != null) {
-			URL entry = bundleContext.getBundle().getEntry(propertiesPath);
+			URL entry = new URL("file:" + propertiesPath);
 			Properties prop = new Properties();
 			InputStream openStream = entry.openStream();
 			prop.load(openStream);
