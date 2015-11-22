@@ -5,7 +5,6 @@ with source,requirements
 
 location eclipse "http://download.eclipse.org/eclipse/updates/4.5" {
 	javax.xml
-	org.eclipse.equinox.p2.metadata.repository
 	org.eclipse.core.commands
 	org.eclipse.core.runtime
 	org.eclipse.equinox.app
