@@ -7,7 +7,7 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="fr.smartcontext.yatte.examples.ExampleApplication">
+               class="fr.smartcontext.yatte.examples.simple.ExampleApplication">
          </run>
       </application>
    </extension>
