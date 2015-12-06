@@ -1,0 +1,16 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fr.smartcontext</groupId>
+    <artifactId>yatte.aggregator</artifactId>
+    <version>0.7.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    
+    <modules>
+        <module>../../</module>
+        <module>../../../../bundles/fr.smartcontext.yatte.engine</module>
+        <module>../../../../bundles/fr.smartcontext.yatte.application</module>
+        <module>../../../../releng/fr.smartcontext.yatte.repository</module>
+    </modules>
+</project> 
+
+

@@ -17,9 +17,9 @@
 		<version>0.7.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>fr.smartcontext.yatte.engine</artifactId>
+	<artifactId>fr.smartcontext.yatte.repository</artifactId>
 	<version>0.7.0-SNAPSHOT</version>
-	<packaging>eclipse-plugin</packaging>
-	<name>yatte engine</name>
+	<packaging>eclipse-repository</packaging>
+	<name>yatte repository</name>
 
 </project>
