@@ -1,6 +1,10 @@
-/**
- * 
- */
+/*******************************************************************************
+ * Copyright (c) 2015 Goulwen Le Fur.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *******************************************************************************/
 package fr.smartcontext.yatte.application.context;
 
 import java.io.InputStream;
@@ -20,13 +24,14 @@ import fr.smartcontext.yatte.engine.context.ProcessingContext;
 import fr.smartcontext.yatte.engine.context.ProcessingContextImpl;
 
 /**
- * @author glefur
+ * @author <a href="goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
 public class PropertiesContextInitializer implements ContextInitializer {
 
-	/* (non-Javadoc)
-	 * @see fr.smartcontext.yatte.application.context.ContextInitializer#initContext(org.osgi.framework.BundleContext, org.apache.commons.cli.CommandLine)
+	/** 
+	 * {@inheritDoc}
+	 * @see fr.smartcontext.yatte.engine.context.ContextInitializer#initContext(org.osgi.framework.BundleContext, org.apache.commons.cli.CommandLine)
 	 */
 	@Override
 	public ProcessingContext initContext(BundleContext bundleContext, CommandLine cmdLine) throws Exception {

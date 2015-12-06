@@ -5,21 +5,14 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package fr.smartcontext.yatte.engine.context;
+package fr.smartcontext.yatte.examples;
 
-import org.apache.commons.cli.CommandLine;
-import org.osgi.framework.BundleContext;
+import fr.smartcontext.yatte.application.YatteApplication;
 
 /**
- * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
+ * @author <a href="goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
-public interface ContextInitializer {
-	
-	String DOT = ".";
-	String TYPE_SUFFIX = ".type";
-	String PROPERTIES_PATH_PARAMETER = "propertiesPath";
+public class ExampleApplication extends YatteApplication {
 
-	ProcessingContext initContext(BundleContext bundleContext, CommandLine cmdLine) throws Exception;
-	
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><!--gen:feature target=person feature=firstname--> <!--gen:feature target=person feature=lastname--></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+	<p>This is probably the most simple page in the world about <!--gen:feature target=person feature=firstname--> <!--gen:feature target=person feature=lastname--></p>
+	<table>
+		<tr>
+			<td>First Name:</td><td><!--gen:feature target=person feature=firstname--></td>
+		</tr>
+		<tr>
+			<td>Last Name:</td><td><!--gen:feature target=person feature=lastname--></td>
+		</tr>
+		<tr>
+			<td>Address:</td><td><!--gen:feature target=person feature=address--></td>
+		</tr>
+	</table>
+  </body>
+</html>

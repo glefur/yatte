@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Examples of Yatte
+Bundle-SymbolicName: fr.smartcontext.yatte.examples;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: SmartContext
+Require-Bundle: org.eclipse.core.runtime,
+ fr.smartcontext.yatte.application;bundle-version="0.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
