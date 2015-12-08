@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generation Context provider via CLI
+Bundle-SymbolicName: fr.smartcontext.yatte.context.cli
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: SmartContext
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: fr.smartcontext.yatte.engine.context,
+ org.apache.commons.cli;version="1.2.0",
+ org.osgi.framework;version="1.8.0"
+Export-Package: fr.smartcontext.yatte.context.cli,
+ fr.smartcontext.yatte.context.cli.properties
+Bundle-ActivationPolicy: lazy

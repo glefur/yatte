@@ -7,8 +7,6 @@ Bundle-Vendor: SmartContext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: fr.smartcontext.yatte.engine,
  fr.smartcontext.yatte.engine.context,
- org.apache.commons.cli;version="1.2.0",
  org.eclipse.equinox.app,
  org.osgi.framework;version="1.8.0"
-Export-Package: fr.smartcontext.yatte.application,
- fr.smartcontext.yatte.application.context
+Export-Package: fr.smartcontext.yatte.application

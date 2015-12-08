@@ -7,6 +7,9 @@
  *******************************************************************************/
 package fr.smartcontext.yatte.engine.context;
 
+import java.io.OutputStream;
+import java.nio.file.Path;
+
 import org.osgi.framework.BundleContext;
 
 /**
@@ -17,6 +20,17 @@ public interface ProcessingContext {
 	
 	BundleContext getBundleContext();
 	
+	void setVar(String varName, Object instance);
+
 	Object getVar(String name);
+	
+	Path getTemplatePath();
+	
+	void setTemplatePath(Path path);
+	
+	OutputStream getOutput();
+	
+	void setOutput(OutputStream outputStream);
+
 
 }

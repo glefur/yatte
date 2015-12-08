@@ -5,14 +5,16 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package fr.smartcontext.yatte.examples.simple;
+package fr.smartcontext.yatte.context.cli;
 
-import fr.smartcontext.yatte.application.YatteApplication;
+import org.apache.commons.cli.Options;
 
 /**
  * @author <a href="goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
-public class ExampleApplication extends YatteApplication {
+public interface CLIOptionsProvider {
+	
+	Options getOptions();
 
 }

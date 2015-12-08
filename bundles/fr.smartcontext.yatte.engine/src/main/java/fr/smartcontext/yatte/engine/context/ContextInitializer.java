@@ -7,7 +7,8 @@
  *******************************************************************************/
 package fr.smartcontext.yatte.engine.context;
 
-import org.apache.commons.cli.CommandLine;
+import java.util.List;
+
 import org.osgi.framework.BundleContext;
 
 /**
@@ -20,6 +21,6 @@ public interface ContextInitializer {
 	String TYPE_SUFFIX = ".type";
 	String PROPERTIES_PATH_PARAMETER = "propertiesPath";
 
-	ProcessingContext initContext(BundleContext bundleContext, CommandLine cmdLine) throws Exception;
+	ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception;
 	
 }

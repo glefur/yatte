@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><!--gen:feature target=john feature=firstname--> <!--gen:feature target=john feature=lastname--></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+	<p>This is a little more sofisticated about <!--gen:feature target=john feature=firstname--> <!--gen:feature target=john feature=lastname--></p>
+	<table>
+		<tr>
+			<td>First Name:</td><td><!--gen:feature target=john feature=firstname--></td>
+		</tr>
+		<tr>
+			<td>Last Name:</td><td><!--gen:feature target=john feature=lastname--></td>
+		</tr>
+		<tr>
+			<td>Address:</td><td><!--gen:feature target=john feature=address--></td>
+		</tr>
+		<tr>
+			<td>Father:</td><td><!--gen:service qname=fr.smartcontext.yatte.examples.advanced.services.ExtendedPersonService target=john operation=fatherIdentity--></td>
+		</tr>
+		<tr>
+			<td>Mother:</td><td><!--gen:service qname=fr.smartcontext.yatte.examples.advanced.services.ExtendedPersonService target=john operation=motherIdentity--></td>
+		</tr>
+	</table>
+  </body>
+</html>

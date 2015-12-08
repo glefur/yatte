@@ -3,11 +3,20 @@
 <plugin>
 
    <extension
-         id="application"
+         id="simpleApp"
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="fr.smartcontext.yatte.examples.simple.ExampleApplication">
+               class="fr.smartcontext.yatte.examples.simple.SimpleApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="AdvancedApp"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="fr.smartcontext.yatte.examples.advanced.AdvancedApplication">
          </run>
       </application>
    </extension>

@@ -5,38 +5,40 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package fr.smartcontext.yatte.application.context;
+package fr.smartcontext.yatte.context.cli.properties;
 
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
 import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.Options;
 import org.osgi.framework.BundleContext;
 
-import fr.smartcontext.yatte.application.ApplicationParametersConstants;
-import fr.smartcontext.yatte.engine.context.ContextInitializer;
+import fr.smartcontext.yatte.context.cli.ApplicationParametersConstants;
+import fr.smartcontext.yatte.context.cli.CLIBasedContextInitializer;
 import fr.smartcontext.yatte.engine.context.ProcessingContext;
-import fr.smartcontext.yatte.engine.context.ProcessingContextImpl;
 
 /**
  * @author <a href="goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
-public class PropertiesContextInitializer implements ContextInitializer {
+public class PropertiesContextInitializer extends CLIBasedContextInitializer {
 
 	/** 
 	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.engine.context.ContextInitializer#initContext(org.osgi.framework.BundleContext, org.apache.commons.cli.CommandLine)
+	 * @see fr.smartcontext.yatte.context.cli.CLIBasedContextInitializer#initContext(org.osgi.framework.BundleContext, java.util.List)
 	 */
 	@Override
-	public ProcessingContext initContext(BundleContext bundleContext, CommandLine cmdLine) throws Exception {
-		ProcessingContextImpl processingContext = new ProcessingContextImpl(bundleContext);
-
+	public ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception {
+		ProcessingContext processingContext = super.initContext(bundleContext, parameters);
+		Options options = getOptions(bundleContext);
+		CommandLine cmdLine = getCmdLine(parameters, options);
 		String propertiesPath = cmdLine.getOptionValue(ApplicationParametersConstants.PROPERTIES_PATH_OPTION_NAME);
 		if (propertiesPath != null) {
 			URL entry = new URL("file:" + propertiesPath);
