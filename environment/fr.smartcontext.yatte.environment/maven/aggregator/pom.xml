@@ -8,6 +8,7 @@
     <modules>
         <module>../../</module>
         <module>../../../../bundles/fr.smartcontext.yatte.engine</module>
+        <module>../../../../bundles/fr.smartcontext.yatte.context.cli</module>
         <module>../../../../bundles/fr.smartcontext.yatte.application</module>
         <module>../../../../releng/fr.smartcontext.yatte.repository</module>
     </modules>

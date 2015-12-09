@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Generation Context provider via CLI
 Bundle-SymbolicName: fr.smartcontext.yatte.context.cli
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-Vendor: SmartContext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: fr.smartcontext.yatte.engine.context,
