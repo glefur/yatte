@@ -13,8 +13,6 @@ import java.io.FileOutputStream;
 import java.nio.file.Paths;
 import java.util.List;
 
-import org.osgi.framework.BundleContext;
-
 import fr.smartcontext.yatte.engine.context.ContextInitializer;
 import fr.smartcontext.yatte.engine.context.ProcessingContext;
 import fr.smartcontext.yatte.engine.context.ProcessingContextImpl;
@@ -27,13 +25,13 @@ public class SimplestContextInitializer implements ContextInitializer {
 
 	/** 
 	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.engine.context.ContextInitializer#initContext(org.osgi.framework.BundleContext, java.util.List)
+	 * @see fr.smartcontext.yatte.engine.context.ContextInitializer#initContext(java.util.List)
 	 * In this implementation, we expect to find the path to the template in the first place of <code>parameters</code> and that's it.
 	 * Optionally, we'll search for a filepath as 2nd parameter, otherwise the output will be System::out
 	 */
 	@Override
-	public ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception {
-		ProcessingContextImpl processingContext = new ProcessingContextImpl(bundleContext);
+	public ProcessingContext initContext(List<String> parameters) throws Exception {
+		ProcessingContextImpl processingContext = new ProcessingContextImpl();
 		if (parameters.size() > 0) {
 			processingContext.setTemplatePath(Paths.get((String)parameters.get(0)));
 			if (parameters.size() > 1) {

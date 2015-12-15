@@ -17,8 +17,6 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
 
 import fr.smartcontext.yatte.engine.context.ContextInitializer;
 import fr.smartcontext.yatte.engine.context.ProcessingContext;
@@ -30,13 +28,31 @@ import fr.smartcontext.yatte.engine.context.ProcessingContextImpl;
  */
 public class CLIBasedContextInitializer implements ContextInitializer {
 
-	/* (non-Javadoc)
-	 * @see fr.smartcontext.yatte.engine.context.ContextInitializer#initContext(org.osgi.framework.BundleContext, java.util.List)
+	private CLIOptionsProvider optionsProvider;
+	
+
+	/**
+	 * 
+	 */
+	public CLIBasedContextInitializer() {
+		optionsProvider = null;
+	}
+
+	/**
+	 * @param optionsProvider the optionsProvider to set
+	 */
+	public void setOptionsProvider(CLIOptionsProvider optionsProvider) {
+		this.optionsProvider = optionsProvider;
+	}
+
+	/** 
+	 * {@inheritDoc}
+	 * @see fr.smartcontext.yatte.engine.context.ContextInitializer#initContext(java.util.List)
 	 */
 	@Override
-	public ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception {
-		ProcessingContextImpl processingContext = new ProcessingContextImpl(bundleContext);
-		Options options = getOptions(bundleContext);
+	public ProcessingContext initContext(List<String> parameters) throws Exception {
+		ProcessingContextImpl processingContext = new ProcessingContextImpl();
+		Options options = getOptions();
 		CommandLine cmdLine = getCmdLine(parameters, options);
 		processingContext.setTemplatePath(Paths.get(cmdLine.getOptionValue(ApplicationParametersConstants.TEMPLATE_OPTION_NAME)));
 		processingContext.setOutput(new FileOutputStream(new File(cmdLine.getOptionValue(ApplicationParametersConstants.OUTPUT_OPTION_NAME))));
@@ -47,12 +63,8 @@ public class CLIBasedContextInitializer implements ContextInitializer {
 	 * @param bundleContext
 	 * @return
 	 */
-	protected final Options getOptions(BundleContext bundleContext) {
-		CLIOptionsProvider optionsProvider = null;
-		ServiceReference<CLIOptionsProvider> cliopRef = bundleContext.getServiceReference(CLIOptionsProvider.class);
-		if (cliopRef != null) {
-			optionsProvider = bundleContext.getService(cliopRef);
-		} else {
+	protected final Options getOptions() {
+		if (optionsProvider == null) {
 			optionsProvider = new DefaultOptionsProvider();
 		}
 		

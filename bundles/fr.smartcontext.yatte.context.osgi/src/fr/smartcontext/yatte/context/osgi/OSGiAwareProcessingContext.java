@@ -5,29 +5,23 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package fr.smartcontext.yatte.engine.context;
+package fr.smartcontext.yatte.context.osgi;
 
-import java.io.OutputStream;
-import java.nio.file.Path;
+import fr.smartcontext.yatte.engine.context.ProcessingContextImpl;
 
 /**
- * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
+ * @author <a href="goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
-public interface ProcessingContext {
-	
-	void setVar(String varName, Object instance);
+public class OSGiAwareProcessingContext extends ProcessingContextImpl {
 
-	Object getVar(String name);
-	
-	Path getTemplatePath();
-	
-	void setTemplatePath(Path path);
-	
-	OutputStream getOutput();
-	
-	void setOutput(OutputStream outputStream);
-
-	Class<?> loadClass(String qname);
+	/** 
+	 * {@inheritDoc}
+	 * @see fr.smartcontext.yatte.engine.context.ProcessingContextImpl#loadClass(java.lang.String)
+	 */
+	@Override
+	public Class<?> loadClass(String qname) {
+		return super.loadClass(qname);
+	}
 
 }

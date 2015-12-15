@@ -39,7 +39,7 @@ public class YatteApplication implements IApplication {
 			List<String> parameters = Arrays.asList((String[]) context.getArguments().get(IApplicationContext.APPLICATION_ARGS));
 			prepareGeneration(bundleContext, parameters);
 			GenerationProcess generationProcess = new GenerationProcess();
-			ProcessingContext processingContext = generationProcess.prepareContext(bundleContext, parameters);
+			ProcessingContext processingContext = generationProcess.prepareContext(parameters);
 			generationProcess.generate(processingContext);
 		} catch (Exception e) {
 			System.err.println("An error occurred.");

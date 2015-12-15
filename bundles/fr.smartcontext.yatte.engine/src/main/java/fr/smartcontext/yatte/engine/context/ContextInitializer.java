@@ -9,8 +9,6 @@ package fr.smartcontext.yatte.engine.context;
 
 import java.util.List;
 
-import org.osgi.framework.BundleContext;
-
 /**
  * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
@@ -21,6 +19,6 @@ public interface ContextInitializer {
 	String TYPE_SUFFIX = ".type";
 	String PROPERTIES_PATH_PARAMETER = "propertiesPath";
 
-	ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception;
+	ProcessingContext initContext(List<String> parameters) throws Exception;
 	
 }

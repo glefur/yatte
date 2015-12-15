@@ -6,8 +6,7 @@ Bundle-Version: 0.7.0.qualifier
 Bundle-Vendor: SmartContext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: fr.smartcontext.yatte.engine.context,
- org.apache.commons.cli;version="1.2.0",
- org.osgi.framework;version="1.8.0"
+ org.apache.commons.cli;version="1.2.0"
 Export-Package: fr.smartcontext.yatte.context.cli,
  fr.smartcontext.yatte.context.cli.properties
 Bundle-ActivationPolicy: lazy

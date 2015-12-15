@@ -40,7 +40,7 @@ public class GenServiceCommand extends Command {
 		}
 		if (qname != null && operation != null && var != null) {
 			try {
-				Class<?> class_ = context.getBundleContext().getBundle().loadClass(qname);
+				Class<?> class_ = context.loadClass(qname);
 				Method method = getMethod(class_, operation, var);
 				if (method != null) {
 					method.setAccessible(true);
@@ -51,7 +51,7 @@ public class GenServiceCommand extends Command {
 						return (String) method.invoke(newInstance, var);
 					}
 				}
-			} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | InstantiationException e) {
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | InstantiationException e) {
 				return null;
 			}
 		}

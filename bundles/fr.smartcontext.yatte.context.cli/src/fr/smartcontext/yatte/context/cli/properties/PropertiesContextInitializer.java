@@ -18,7 +18,6 @@ import java.util.Set;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
-import org.osgi.framework.BundleContext;
 
 import fr.smartcontext.yatte.context.cli.ApplicationParametersConstants;
 import fr.smartcontext.yatte.context.cli.CLIBasedContextInitializer;
@@ -35,9 +34,9 @@ public class PropertiesContextInitializer extends CLIBasedContextInitializer {
 	 * @see fr.smartcontext.yatte.context.cli.CLIBasedContextInitializer#initContext(org.osgi.framework.BundleContext, java.util.List)
 	 */
 	@Override
-	public ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception {
-		ProcessingContext processingContext = super.initContext(bundleContext, parameters);
-		Options options = getOptions(bundleContext);
+	public ProcessingContext initContext(List<String> parameters) throws Exception {
+		ProcessingContext processingContext = super.initContext(parameters);
+		Options options = getOptions();
 		CommandLine cmdLine = getCmdLine(parameters, options);
 		String propertiesPath = cmdLine.getOptionValue(ApplicationParametersConstants.PROPERTIES_PATH_OPTION_NAME);
 		if (propertiesPath != null) {
@@ -49,7 +48,7 @@ public class PropertiesContextInitializer extends CLIBasedContextInitializer {
 			for (String varName : searchVariableNames) {
 				Collection<String> features = searchFeatureForVariable(prop, varName);
 				String type = prop.getProperty(varName + TYPE_SUFFIX);
-				Class<?> class_ = bundleContext.getBundle().loadClass(type);
+				Class<?> class_ = processingContext.loadClass(type);
 				Object instance = class_.newInstance();
 				for (String feature : features) {
 					setFeature(prop, varName, class_, instance, feature);

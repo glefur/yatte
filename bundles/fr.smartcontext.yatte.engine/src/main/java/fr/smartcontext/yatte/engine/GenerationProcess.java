@@ -11,9 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
-
 import fr.smartcontext.yatte.engine.context.ContextInitializer;
 import fr.smartcontext.yatte.engine.context.ProcessingContext;
 import fr.smartcontext.yatte.internal.engine.context.SimplestContextInitializer;
@@ -24,21 +21,41 @@ import fr.smartcontext.yatte.internal.engine.context.SimplestContextInitializer;
  */
 public class GenerationProcess {
 	
+	private ContextInitializer contextInitializer;
+	private TemplateProcessor templateProcessor;
+	
 	/**
-	 * @param bundleContext
+	 * 
+	 */
+	public GenerationProcess() {
+		contextInitializer = null;
+		templateProcessor = null;
+	}
+
+	/**
+	 * @param contextInitializer the contextInitializer to set
+	 */
+	public void setContextInitializer(ContextInitializer contextInitializer) {
+		this.contextInitializer = contextInitializer;
+	}
+
+	/**
+	 * @param templateProcessor the templateProcessor to set
+	 */
+	public void setTemplateProcessor(TemplateProcessor templateProcessor) {
+		this.templateProcessor = templateProcessor;
+	}
+
+	/**
 	 * @param parameters
 	 * @return
 	 * @throws Exception
 	 */
-	public ProcessingContext prepareContext(BundleContext bundleContext, List<String> parameters) throws Exception {
-		ContextInitializer contextInitializer;
-		ServiceReference<ContextInitializer> ciRef = bundleContext.getServiceReference(ContextInitializer.class);
-		if (ciRef != null) {
-			contextInitializer = bundleContext.getService(ciRef);
-		} else {
+	public ProcessingContext prepareContext(List<String> parameters) throws Exception {
+		if (contextInitializer == null) {
 			contextInitializer = new SimplestContextInitializer();
 		}
-		ProcessingContext processingContext = contextInitializer.initContext(bundleContext, parameters);
+		ProcessingContext processingContext = contextInitializer.initContext(parameters);
 		return processingContext;
 	}
 
@@ -47,11 +64,11 @@ public class GenerationProcess {
 	 * @throws IOException
 	 */
 	public void generate(ProcessingContext processingContext) throws IOException {
-		ServiceReference<TemplateProcessor> templateProcessorRef = processingContext.getBundleContext().getServiceReference(TemplateProcessor.class);
-		TemplateProcessor templateProcessor = processingContext.getBundleContext().getService(templateProcessorRef);
-		PrintWriter fos = new PrintWriter(processingContext.getOutput());
-		templateProcessor.process(processingContext.getTemplatePath(), processingContext, fos);
-		fos.close();
+		if (templateProcessor != null) {
+			PrintWriter fos = new PrintWriter(processingContext.getOutput());
+			templateProcessor.process(processingContext.getTemplatePath(), processingContext, fos);
+			fos.close();
+		}
 	}
 
 }

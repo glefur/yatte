@@ -12,31 +12,18 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.osgi.framework.BundleContext;
-
 /**
  * @author <a href="mailto:goulwen.lefur@gmail.com">Goulwen Le Fur</a>
  *
  */
 public class ProcessingContextImpl implements ProcessingContext {
 	
-	private final BundleContext bundleContext;
 	private final Map<String, Object> variables;
 	private Path templatePath;
 	private OutputStream output;
 
-	public ProcessingContextImpl(BundleContext bundleContext) {
-		this.bundleContext = bundleContext;
+	public ProcessingContextImpl() {
 		variables = new HashMap<>();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.engine.context.ProcessingContext#getBundleContext()
-	 */
-	@Override
-	public BundleContext getBundleContext() {
-		return bundleContext;
 	}
 
 	/**
@@ -83,6 +70,15 @@ public class ProcessingContextImpl implements ProcessingContext {
 	 */
 	public void setOutput(OutputStream output) {
 		this.output = output;
+	}
+
+	/** 
+	 * {@inheritDoc}
+	 * @see fr.smartcontext.yatte.engine.context.ProcessingContext#loadClass(java.lang.String)
+	 */
+	@Override
+	public Class<?> loadClass(String qname) {
+		return null;
 	}
 	
 }

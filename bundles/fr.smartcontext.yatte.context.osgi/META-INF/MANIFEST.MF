@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Bundle providing OSGi aware Processing Context
+Bundle-SymbolicName: fr.smartcontext.yatte.context.osgi
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: SmartContext
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: fr.smartcontext.yatte.engine.context,
+ org.osgi.framework;version="1.8.0"

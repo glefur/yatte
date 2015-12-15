@@ -9,8 +9,6 @@ package fr.smartcontext.yatte.examples.advanced.context;
 
 import java.util.List;
 
-import org.osgi.framework.BundleContext;
-
 import fr.smartcontext.yatte.context.cli.properties.PropertiesContextInitializer;
 import fr.smartcontext.yatte.engine.context.ProcessingContext;
 import fr.smartcontext.yatte.examples.advanced.ExtendedPerson;
@@ -23,11 +21,11 @@ public class ContextInitializerExtender extends PropertiesContextInitializer {
 
 	/** 
 	 * {@inheritDoc}
-	 * @see fr.smartcontext.yatte.context.cli.properties.PropertiesContextInitializer#initContext(org.osgi.framework.BundleContext, java.util.List)
+	 * @see fr.smartcontext.yatte.context.cli.properties.PropertiesContextInitializer#initContext(java.util.List)
 	 */
 	@Override
-	public ProcessingContext initContext(BundleContext bundleContext, List<String> parameters) throws Exception {
-		ProcessingContext initContext = super.initContext(bundleContext, parameters);
+	public ProcessingContext initContext(List<String> parameters) throws Exception {
+		ProcessingContext initContext = super.initContext(parameters);
 		ExtendedPerson john = (ExtendedPerson) initContext.getVar("john");
 		ExtendedPerson george = (ExtendedPerson) initContext.getVar("george");
 		ExtendedPerson jane = (ExtendedPerson) initContext.getVar("jane");
